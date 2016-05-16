@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project 4</title>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="index.css" />
+    </head>
+    <body>
+        <div id="container" class="intro">
+            <div id="progress" class="hidden">
+                <div data-dest="menu">Checklist</div>
+                <div data-dest="faa-online-1">sUAS Online</div>
+                <div data-dest="faa-number-1">N-Number Registration</div>
+                <div data-dest="faa-333-1">Sect. 333 Exemption</div>
+                <div data-dest="faa-pilot-1">FAA Pilot License</div>
+                <div data-dest="faa-coa-1">Non-Citizen CoA</div>
+            </div>
+            <div id="sidebar">
+                <h1>Drone Registration Instructional Guide</h1>
+                <div class="intro">
+                    <p>
+                        This interactive instructional guide will walk through the process of registering
+                        drones for recreational and/or commercial use at a federal and state level in the 
+                        United States.
+                    </p>
+                    <p>
+                        This guide is intended for <b>new drone owners</b> looking to ensure that they are 
+                        flying legally or for <b>prospective drone owners</b> to see what restrictions are 
+                        in place in their area. This guide covers US laws only and is up-to-date as of 
+                        May 8th, 2016. Please check http://faa.gov for the latest registration requirements.
+                    </p>
+                    <br/>
+                    <div class="nav">
+                        <div class="translucent" onclick="slides.nav.begin();">Continue</div>
+                    </div>
+                </div>
+            </div>
+            <div id="slides">
+                <div id="size">
+                    <h2>How large is your drone?</h2>
+                    <div class="row row-select">
+                        <div class="threecol" data-val="small">
+                            <h3>&lt;0.55 Pounds</h3>
+                            <img src="./under-weight.png" />
+                        </div>
+                        <div class="sixcol" data-val="medium">
+                            <h3>0.55 - 55 Pounds</h3>
+                            <img src="./weight-applicibility.png" />
+                        </div>
+                        <div class="threecol" data-val="large">
+                            <h3>&gt;55 Pounds</h3>
+                            <img src="./over-weight.png" />
+                        </div>
+                    </div>
+                    <div class="nav">
+                        <div class="next hidden">Continue</div>
+                    </div>
+                </div>
+                <div id="map">
+                    <form id="user_form">
+                        <h2>Please select the states in which you plan to fly your drone.</h2>
+                        <div class="nav">
+                            <div class="back">Back</div>
+                            <input type="submit" value="Next" onclick="return slides.map.submit();"/> 
+                        </div>  
+                        <div id="usa" class="mapdiv"></div>
+                        <input type="hidden" name="usa" id="usa_field" value="" />
+                        <div class="nav">
+                            <div class="back">Back</div>
+                            <input type="submit" value="Next" onclick="return slides.map.submit();"/> 
+                        </div>             
+                    </form>
+                </div>
+                <div id="usage">
+                    <h2>How do you plan on using the drone?</h2>
+                    <div class="row row-select">
+                        <div class="fourcol" data-val="rec">
+                            <h3>Recreationally (Only)</h3>
+                            Select this option if:
+                            <ul>
+                                <li>You plan on flying for personal use.</li>
+                                <li>Images taken will not be used professionally.</li>
+                                <li>You plan on flying below 400 feet at all times.</li>
+                                <li>You will not profit off the drone or its usage.</li>
+                            </ul>
+                        </div>
+                        <div class="fourcol" data-val="com">
+                            <h3>Commercially (Only)</h3>
+                            Select this option if:
+                            <ul>
+                                <li>You plan on flying on behalf of a company or organization.</li>
+                                <li>Images taken will be used professionally.</li>
+                                <li>You may profit off the drone or its usage.</li>
+                            </ul>
+                        </div>
+                        <div class="fourcol" data-val="both">
+                            <h3>Recreationally &amp; Commercially</h3>
+                            Select this option if:
+                            <ul>
+                                <li>You plan on flying for personal use and on behalf of a company or organization.</li>
+                                <li>You might use images professionally or for freelance work.</li>
+                                <li>You might profit off indirect usage of the drone (ex: imagery).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="nav">
+                        <div class="back">Back</div>
+                    </div>
+                </div>
+                <div id="info">
+                    <h2>What is your citizenship status?</h2>
+                    <div class="row row-select" id="citizen-status">
+                        <div class="fourcol" data-val="full">
+                            <h3>Full US Citizen</h3>
+                        </div>
+                        <div class="fourcol" data-val="trustee">
+                            <h3>US Voting Trustee</h3>
+                        </div>
+                        <div class="fourcol" data-val="none">
+                            <h3>Non-Citizen
+                        </div>
+                    </div>
+                    <h2>Do you plan on flying outside the United States?</h2>
+                    <div class="row row-select" id="outside">
+                        <div class="threecol" data-val="no">
+                            <h3>No</h3>
+                        </div>
+                        <div class="threecol" data-val="na">
+                            <h3>Yes, North America</h3>
+                        </div>
+                        <div class="threecol" data-val="ww">
+                            <h3>Yes, Worldwide</h3>
+                        </div>
+                    </div>
+                    <h2>Do you plan on flying above 400 feet from the ground?</h2>
+                    <div class="row row-select" id="above-400">
+                        <div class="threecol" data-val="no"><h2>No</h2></div>
+                        <div class="threecol" data-val="yes"><h2>Yes</h2></div>
+                    </div>
+                    <div class="nav">
+                        <div class="back">Back</div>
+                    </div>
+                </div>
+                <div id="menu">
+                    <h2>What You Need Before You Fly</h2>
+                    <div class="row">
+                        <div class="fivecol" style="text-align: left;">
+                            Below are all the things that you need to do before flying your drone. Based on your 
+                            answers, we've crossed off the ones that don't apply to you. Click a step
+                            to jump directly to it or hit "Begin" to go through each step now.
+                            <hr/>
+                            <ul id="step-list">
+                                <li data-dest="faa-online-1">1. Federal sUAS Online Registration</li>
+                                <li data-dest="faa-number-1">2. Federal N-number Paper Registration</li>
+                                <li data-dest="faa-333-1">3. FAA Section 333 Exemption</li>
+                                <li data-dest="faa-pilot-1">4. FAA Pilot License</li>
+                                <li data-dest="faa-coa-1">5. Non-Citizen Certificate of Authorization</li>
+                            </ul>
+
+                        </div>
+                        <div class="sevencol">
+                            <div class="button" onclick="slides.nav.to('size');">Reenter<br/>Information</div>
+                            <div class="button" onclick="slides.menu.go();" style="padding: 30px;">Begin</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="faa-online-1" class="directions">
+                    <h2>FAA sUAS Online Registration</h2>
+                    <div class="row step-info">
+                        <div class="sixcol">
+                            The FAA sUAS (small Unmanned Aerial System) Online Registration system is 
+                            used to register your drone with the US federal government. After registering,
+                            the drone will be your responsibility when it is in the air.
+                            <br/><hr/><br/>
+                            <div style="text-align: center">
+                                <h3>Important Links</h3>
+                                <a class="button" href="https://registermyuas.faa.gov/register" target="_blank">
+                                    FAA sUAS Registration Page
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sixcol">
+                            You must register if all of the following apply:
+                            <ul>
+                                <li>Your drone weighs more than 0.55 pounds.</li>
+                                <li>You plan on flying the drone in the United States recreationally or commercially.</li>
+                            </ul>
+                            You need:
+                            <ul>
+                                <li>An email address</li>
+                                <li>Credit or debit card (for $5 registration fee)</li>
+                                <li>Physical address</li>
+                                <li>Permanent marker or label (to mark the drone)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>1</span> Create an FAA Account</div>
+                        <div class="fivecol">
+                            Click the link above to go the to FAA sUAS Registration page, then 
+                            create an account by filling in your username and password.
+                        </div>
+                        <div class="sevencol">
+                            <img src="faa-online/create-account.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>2</span> Confirm Your Email</div>
+                        <div class="sevencol">
+                            <img src="faa-online/confirm-email.png" />
+                        </div>
+                        <div class="fivecol">
+                            Check the email that you used to register and click the confirmation 
+                            link inside to continue with registration.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>3</span> Agree to the Site Notice / Login</div>
+                        <div class="fivecol">
+                            Carefully read the Privacy Policy and Privacy Act Notice linked to 
+                            from within the dialog box that appears. When finished, hit "Agree" 
+                            and log in with the email and password you just created.
+                        </div>
+                        <div class="sevencol">
+                            <img src="faa-online/use-notice.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>4</span> Select Your Account Type</div>
+                        <div class="sevencol">
+                            <img src="faa-online/account-type.png" />
+                        </div>
+                        <div class="fivecol" id="account-type-info"></div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>5</span> Complete Your Profile / Checkout</div>
+                        <div class="fivecol">
+                            Fill in the personal information on the following page 
+                            and select "Continue to Checkout" when done. Then, enter 
+                            your credit card information to pay the $5 registration fee.
+                        </div>
+                        <div class="sevencol">
+                            <img src="faa-online/profile.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>6</span> Print Certificate / Mark Drone</div>
+                        <div class="sevencol">
+                            <img src="faa-online/certificate.png" />
+                        </div>
+                        <div class="fivecol">
+                            Print the certificate provided on the following page and keep 
+                            it with you when you fly. Use a permanent marker to label your 
+                            drone with the registration number on the certificate.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img src="faa-online/how-to-label.png" />
+                    </div>
+                    <div class="row">
+                        <div class="twelvecol"><h2>That's It!</h2></div>
+                        <div class="sixcol">
+                            Your drone is now registered online with the FAA for personal or 
+                            commercial use! Depending on your circumstances, additional registration 
+                            steps may be required. Click "Back to Checklist" on the right to see what 
+                            else you need to do before you fly, or hit "Next Step" to begin N-number 
+                            registration now.
+                        </div>
+                        <div class="sixcol">
+                            <div class="button" onclick="slides.nav.to('menu');">Back to Checklist</div>
+                            <div class="button" onclick="slides.nav.next();">Next Step: N-number Registration</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="faa-number-1" class="directions">
+                    <h2>Federal N-number Paper Registration</h2>
+                    <div class="row step-info">
+                        <div class="sixcol">
+                            N-number Paper Registration is used to register vehicles that 
+                            don't fit into the qualifications sUAS (small Unmanned 
+                            Aerial Systems). If your drone is large, operates outside the US,
+                            or is operated by a voter trustee, then you will need to use 
+                            paper registration to legally fly your drone recreationally or 
+                            commercially.
+                            <br/><hr/><br/>
+                            <div style="text-align: center">
+                                <h3>Important Links</h3>
+                                <a class="button" href="http://aircraft.faa.gov/e.gov/NN/" target="_blank">
+                                    N-Number Reservations
+                                </a> 
+                                <a class="button" href="http://www.faa.gov/documentLibrary/media/Form/AC_8050-1_OMB_4-2017.pdf" target="_blank">
+                                    FAA Aircraft Registration Form
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sixcol">
+                            You need this if at least one of the following applies:
+                            <ul>
+                                <li>Your drone weighs more than 55 pounds.</li>
+                                <li>You plan on flying in other countries in North America.</li>
+                                <li>You are a voter trustee rather than a full US citizen.</li>
+                            </ul>
+                            You need:
+                            <ul>
+                                <li>A credit or debit card ($10 N-number registration fee)</li>
+                                <li>A mailing address, physical address, and phone number</li>
+                                <li>Printer access</li>
+                                <li>The drone's model and serial number</li>
+                                <li>An envelope and stamps (to mail the application)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>1</span> Reserve your N-Number</div>
+                        <div class="fivecol">
+                            Use the link above to access the N-Number Reservation form, then 
+                            fill out the form to request an N-Number for use with your drone. 
+                            Click "Proceed with Request" and enter your credit card information 
+                            to receive an N-Number in your name. Make sure to save this N-number!
+                        </div>
+                        <div class="sevencol">
+                            <img src="n-number/n-number.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>2</span> Download and Print the Registration Form</div>
+                        <div class="sevencol">
+                            <img src="n-number/form.png" />
+                        </div>
+                        <div class="fivecol">
+                            Use the link above to download and print the Aircraft Registration 
+                            form. Read through the Privacy Act Statement and make sure that you 
+                            agree to each clause before filling out. 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>3</span> Fill out Personal Information</div>
+                        <div class="fivecol">
+                            Use a blue or black pen and fill out your personal information in page 2 
+                            of the form. Make sure to use the US Registration Number that you received
+                            from the N-Number request form in step 1 above.
+                        </div>
+                        <div class="sevencol">
+                            <img src="n-number/info.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>4</span> Sign, Date, and Mail</div>
+                        <div class="sevencol">
+                            <img src="n-number/mail.png" />
+                        </div>
+                        <div class="fivecol">
+                            Sign and date the document and mail the original (not a copy) 
+                            to the address on the left. No check is required in this filing.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelvecol"><h2>That's It!</h2></div>
+                        <div class="sixcol">
+                            In 2-3 weeks, you should get a letter back to your mailing address
+                            with the confirmation of registration. Depending on your circumstances, additional registration 
+                            steps may be required. Click "Back to Checklist" on the right to see what 
+                            else you need to do before you fly, or hit "Next Step" to begin Section 
+                            333 Exemption now.
+                        </div>
+                        <div class="sixcol">
+                            <div class="button" onclick="slides.nav.to('menu');">Back to Checklist</div>
+                            <div class="button" onclick="slides.nav.next();">Next Step: Section 333 Exemption</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="faa-333-1" class="directions">
+                    <h2>FAA Section 333 Exemption</h2>
+                    <div class="row step-info">
+                        <div class="sixcol">
+                            Section 333 of the FAA Guidelines states that an unmanned aerial vehicle 
+                            cannot be used commercially. However, the government regularly and predictably
+                            grants exemptions to this section to those who file petitions online. You'll need
+                            to file a petition and be granted an exception before you can fly large drones 
+                            or commercial drones in North America.
+                            <br/><hr/><br/>
+                            <div style="text-align: center">
+                                <h3>Important Links</h3>
+                                <a class="button" href="http://aes.faa.gov/Petition/" target="_blank">
+                                    FAA Petition Guidelines
+                                </a> 
+                                <a class="button" href="http://www.regulations.gov/#!submitComment;D=FAA-2007-0001-0001" target="_blank">
+                                    Section 333 Public Docket
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sixcol">
+                            You need this if at least one of the following applies:
+                            <ul>
+                                <li>You plan on flying the drone on behalf of a company.</li>
+                                <li>Your drone weighs more than 55 pounds.</li>
+                                <li>You plan on flying in other countries in North America.</li>
+                                <li>You are a voter trustee rather than a full US citizen.</li>
+                            </ul>
+                            You need:
+                            <ul>
+                                <li>Internet access.</li>
+                                <li>Your mailing address and company information.</li>
+                                <li>Make, model, and serial number of your drone.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>1</span> Review Petition Guidelines</div>
+                        <div class="fivecol">
+                            Use the Guidelines link above to see the general guidelines for 
+                            submitting a petition to be exempt from Section 333.
+                        </div>
+                        <div class="sevencol">
+                            <img src="333/guidelines.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>2</span> File via the Public Docket System</div>
+                        <div class="sevencol">
+                            <img src="333/reg.gov.png" />
+                        </div>
+                        <div class="fivecol">
+                            Use the Public Docket link above to enter the Public Docket specifically 
+                            for Section 333 of the FAA guidelines. Fill out your mailing address, 
+                            business address, and a short outline of what you plan to do with your drone. 
+                            Include make, model, and serial number of the drone. There is no fee for 
+                            filing this exemption.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelvecol"><h2>That's It!</h2></div>
+                        <div class="sixcol">
+                            Within 120 days, you should receive a letter with your Section 333 exemption 
+                            that allows you to fly commercially under 400 feet in North America. Depending on your circumstances, additional registration 
+                            steps may be required. Click "Back to Checklist" on the right to see what 
+                            else you need to do before you fly, or hit "Next Step" to begin the Pilot License
+                            process now.
+                        </div>
+                        <div class="sixcol">
+                            <div class="button" onclick="slides.nav.to('menu');">Back to Checklist</div>
+                            <div class="button" onclick="slides.nav.next();">Next Step: FAA Pilot License</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="faa-pilot-1" class="directions">
+                    <h2>FAA Pilot License</h2>
+                    <div class="row step-into">
+                        <div class="sixcol">
+                            Unfortunately, flying large drones or flying commercially now 
+                            requires a pilot's license through the FAA. Fortunately, obtaining 
+                            a private license only requires a few weeks of classes, a single 
+                            examination, and allows you to fly above 400 feet and in all of North America.
+                            <br/><hr/><br/>
+                            <div style="text-align: center">
+                                <h3>Important Links</h3>
+                                <a class="button" href="http://av-info.faa.gov/PilotSchool.asp" target="_blank">
+                                    Pilot School Locator
+                                </a> 
+                                <a class="button" href="https://www.faa.gov/regulations_policies/handbooks_manuals/" target="_blank">
+                                    FAA Handbooks and Manuals
+                                </a>
+                                <a class="button" href="http://av-info.faa.gov/DesigneeSearch.asp" target="_blank">
+                                    FAA Pilot Tester Locator
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sixcol">
+                            You need this if at least one of the following applies:
+                            <ul>
+                                <li>You plan on flying the drone on behalf of a company.</li>
+                                <li>Your drone weighs more than 55 pounds.</li>
+                                <li>You plan on flying in other countries in North America.</li>
+                                <li>You are a voter trustee rather than a full US citizen.</li>
+                                <li>You plan on flying above 400 feet</li>
+                            </ul>
+                            You need:
+                            <ul>
+                                <li>Time and money to attend Pilot School.</li>
+                                <li>Regular access to your drone.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>1</span> Find a Pilot School</div>
+                        <div class="fivecol">
+                            Use the link above to access the Pilot School Locator 
+                            and enter your city to find FAA-approved Pilot Schools.
+                        </div>
+                        <div class="sevencol">
+                            <img src="faa-pilot/school-locator.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>2</span> Contact and Enroll</div>
+                        <div class="sevencol">
+                            <img src="faa-pilot/school-info.png" />
+                        </div>
+                        <div class="fivecol">
+                            Once you've entered your location information, a list of 
+                            schools will populate. Use the contact information to do 
+                            further research and enroll in a particular school.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>3</span> Attend the Flight School Program</div>
+                        <div class="fivecol">
+                            Once you've enrolled, attend the program and study the additional 
+                            materials provided in the link above (FAA Handbooks and Manuals). 
+                            Ensure that you're comfortable with a vast majority of the material 
+                            before continuing, even if it's not applicable to drones; the theory
+                            portion of the pilot test is not specialized to your vehicle type.
+                        </div>
+                        <div class="sevencol">
+                            <img src="faa-pilot/handbooks.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>4</span> Locate a Pilot Tester</div>
+                        <div class="sevencol">
+                            <img src="faa-pilot/tester.png" />
+                        </div>
+                        <div class="fivecol">
+                            Once you've completed the program, use the link above 
+                            (FAA Pilot Tester Locator) to locate a pilot examiner. Make 
+                            sure to select "PE - Private Pilot Examiner" under the <em>Designee
+                            Type</em> dropdown menu.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>5</span> Complete the Pilot Examination</div>
+                        <div class="fivecol">
+                            Contact an appropriate examiner and ask to complete the Private Pilot
+                            examination. After completing the examination, you will receive a letter
+                            in 4-6 weeks from the FAA office including your pilot's license.
+                        </div>
+                        <div class="sevencol">
+                            <img src="faa-pilot/pilot-license.jpg" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelvecol"><h2>That's It!</h2></div>
+                        <div class="sixcol">
+                            Now that you are a licensed pilot, you are given much more freedom with
+                            drone flying. You can fly above 400 feet, fly commercially, and 
+                            fly within the US even if you aren't a citizen. Depending on your circumstances,
+                            you may have to register your drone or file for further exemptions before it's 
+                            legal to fly. Click "Back to Checklist" on the right to see what 
+                            else you need to do before you fly, or hit "Next Step" to begin the 
+                            non-citizen certificate of authorization now.
+                        </div>
+                        <div class="sixcol">
+                            <div class="button" onclick="slides.nav.to('menu');">Back to Checklist</div>
+                            <div class="button" onclick="slides.nav.next();">Next Step: Non-Citizen CoA</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="faa-coa-1" class="directions">
+                    <h2>Non-Citizen Certificate of Authorization</h2>
+                    <div class="row step-info">
+                        <div class="sixcol">
+                            If you are not a citizen of the United States or a trustee
+                            voter, then you are required to obtain a non-citizen certificate 
+                            of authorization before flying recreationally or commercially. 
+                            Use the steps below to file for a certificate.
+                            <br/><hr/><br/>
+                            <div style="text-align: center">
+                                <h3>Important Links</h3>
+                                <a class="button" href="mailto:9-AJR-36-UAS@faa.gov" target="_top">
+                                    Account Request Email
+                                </a> 
+                                <a class="button" href="https://ioeaaa.faa.gov/oeaaa/Welcome.jsp" target="_blank">
+                                    UAS CoA Online System
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sixcol">
+                            You need this if:
+                            <ul>
+                                <li>You are not a US citizen or trustee voter.</li>
+                            </ul>
+                            You need:
+                            <ul>
+                                <li>An email address</li>
+                                <li>The make, model, and serial number of your drone.</li>
+                                <li>A scanned copy of your immigration documents or visa.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>1</span> Request a CoA Account</div>
+                        <div class="fivecol">
+                            First, use the link above (Account Request Email) to email the UAS 
+                            (Unmanned Aerial System) Office and request an account. Be sure to 
+                            include the make, model, and serial number of your drone as well as 
+                            the grounds under which you are currently living in the United States. 
+                            Include a scanned copy of your immigration documents or visa.
+                        </div>
+                        <div class="sevencol">
+                            <img src="coa/login.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step"><span>2</span> Access the CoA Request System</div>
+                        <div class="sevencol">
+                            <img src="coa/warning.png" />
+                        </div>
+                        <div class="fivecol">
+                            In a few weeks, you should receive an email with your login credentials. 
+                            Use the second link above (UAS CoA Online System) to access the portal. 
+                            Accept the usage agreement, then log in with your provided credentials. 
+                            Fill out your personal information on the next page, then hit "Submit."
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelvecol"><h2>That's It!</h2></div>
+                        <div class="eightcol">
+                            In 2-3 weeks, you should receive an email response with your Certificate of 
+                            Authorization, allowing you to fly drones within the US as a non-citizen. 
+                            Keep this document with you whenever you operate or carry the drone. 
+                            Depending on your circumstances, additional registration 
+                            steps may be required. Click "Back to Checklist" on the right to see what 
+                            else you need to do before you fly.
+                        </div>
+                        <div class="fourcol">
+                            <div class="button" onclick="slides.nav.to('menu');">Back to Checklist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="jquery.js"></script>
+        <script type="text/javascript" src="http://www.amcharts.com/lib/3/ammap.js"></script>
+        <script type="text/javascript" src="http://www.amcharts.com/lib/3/maps/js/usaLow.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>

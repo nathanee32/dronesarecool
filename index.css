@@ -1,0 +1,323 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.hidden {
+  display: none !important; }
+
+.translucent, .opaque {
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s; }
+
+.translucent {
+  opacity: 0; }
+
+.opaque {
+  opacity: 1; }
+
+ul {
+  text-align: left; }
+
+b {
+  font-weight: bold; }
+
+.button, #container .nav > * {
+  margin: 10px;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 18px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  background-color: #eee;
+  border: 1px solid #a2a2a2; }
+  .button:hover, #container .nav > :hover {
+    background-color: white;
+    border: 1px solid #b3b3b3; }
+
+.warning {
+  font-size: 22px;
+  margin: 20px auto;
+  width: 700px;
+  max-width: 80%;
+  text-align: center;
+  padding: 10px; }
+  .warning.yellow {
+    background-color: yellow;
+    border: 1px solid #666600; }
+  .warning.green {
+    background-color: #4E5;
+    border: 1px solid #0d8c1a; }
+
+.row-select > div {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #b3b3b3; }
+  .row-select > div:hover {
+    background-color: #f3f3f3;
+    border: 1px solid #a7a7a7; }
+    .row-select > div:hover img {
+      -webkit-transform: scale(1.05, 1.05);
+              transform: scale(1.05, 1.05); }
+  .row-select > div.selected {
+    background-color: #eee;
+    border: 1px solid #a2a2a2;
+    border-color: #0076c0; }
+  .row-select > div img {
+    max-width: 80%;
+    margin: 10%;
+    width: auto;
+    height: auto;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s; }
+
+#container {
+  font-family: 'Source Sans Pro', sans-serif; }
+  #container > #progress {
+    display: block;
+    width: 100%;
+    background-color: #eee;
+    text-align: center; }
+    #container > #progress > div {
+      display: inline-block;
+      width: 16%;
+      box-sizing: border-box;
+      padding: 15px 0;
+      cursor: pointer;
+      vertical-align: top; }
+      #container > #progress > div:hover, #container > #progress > div.active {
+        text-decoration: underline;
+        background-color: #d5d5d5; }
+  #container > #sidebar, #container > #slides {
+    top: 50px;
+    bottom: 0;
+    position: absolute; }
+  #container > #sidebar {
+    background-color: #fbfbfb;
+    border: 1px solid #aeaeae;
+    width: 200px;
+    -webkit-transition: width 1s;
+    transition: width 1s;
+    left: 0;
+    z-index: 5;
+    font-size: 19px;
+    overflow: hidden; }
+    #container > #sidebar .intro {
+      height: 0;
+      opacity: 0;
+      -webkit-transition: opacity 2s;
+      transition: opacity 2s; }
+    #container > #sidebar p {
+      width: 80%;
+      margin: 10px auto;
+      max-width: 700px; }
+  #container h1, #container h2, #container h3, #container h4 {
+    display: block;
+    text-align: center;
+    margin: 10px auto; }
+  #container h1 {
+    font-size: 30px;
+    margin: 40px auto; }
+  #container h2 {
+    font-size: 25px; }
+  #container h3 {
+    font-size: 22px; }
+  #container .nav {
+    margin: 10px auto;
+    text-align: center; }
+  #container > #slides {
+    background-color: white;
+    border: 1px solid #b3b3b3;
+    display: block;
+    left: 200px;
+    right: 0;
+    z-index: 4;
+    white-space: nowrap;
+    overflow: hidden; }
+    #container > #slides > div {
+      display: inline-block;
+      white-space: normal;
+      overflow: scroll;
+      height: 100%;
+      width: 0%;
+      opacity: 0;
+      -webkit-transition: width 0.5s, opacity 0.5s;
+      transition: width 0.5s, opacity 0.5s; }
+      #container > #slides > div.active {
+        width: 100%;
+        opacity: 1; }
+      #container > #slides > div h2 {
+        margin: 40px auto; }
+      #container > #slides > div#map .mapdiv {
+        width: 50%;
+        min-width: 500px;
+        height: 500px;
+        border: 2px solid #ddd;
+        margin: 0 auto;
+        display: block; }
+        #container > #slides > div#map .mapdiv a {
+          opacity: 0 !important; }
+      #container > #slides > div#menu #step-list {
+        margin-right: 20px; }
+        #container > #slides > div#menu #step-list li {
+          list-style-type: none;
+          cursor: pointer;
+          margin: 10px;
+          padding: 10px;
+          background-color: white;
+          border: 1px solid #b3b3b3; }
+          #container > #slides > div#menu #step-list li:hover {
+            text-decoration: underline;
+            background-color: #eee;
+            border: 1px solid #a2a2a2; }
+          #container > #slides > div#menu #step-list li.opt {
+            opacity: 0.6;
+            text-decoration: line-through;
+            -webkit-transform: scale(0.9, 0.9);
+                    transform: scale(0.9, 0.9); }
+      #container > #slides > div.directions .step-info > div {
+        text-align: left !important;
+        vertical-align: top; }
+      #container > #slides > div.directions .step {
+        font-size: 30px;
+        text-align: left;
+        padding: 15px 0 30px 0; }
+        #container > #slides > div.directions .step span {
+          font-size: 50px;
+          padding: 0 20px; }
+      #container > #slides > div.directions .row {
+        margin: 10px auto;
+        padding-bottom: 20px;
+        padding-top: 10px; }
+        #container > #slides > div.directions .row:nth-child(odd) {
+          background-color: #eee; }
+        #container > #slides > div.directions .row img {
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          max-width: 96%;
+          margin: 20px auto; }
+        #container > #slides > div.directions .row > div:not(.step) {
+          text-align: right;
+          font-size: 22px; }
+          #container > #slides > div.directions .row > div:not(.step):last-child {
+            text-align: left; }
+
+#container.intro > #sidebar {
+  width: 100%; }
+  #container.intro > #sidebar .intro {
+    opacity: 1;
+    height: auto; }
+
+/* ==================================================================================================================== */
+/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
+/* ==================================================================================================================== */
+.row {
+  width: 100%;
+  max-width: 1140px;
+  margin: 10px auto;
+  position: relative;
+  text-align: center; }
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+  margin-right: 1.5%;
+  margin-left: 1.5%;
+  display: inline-block;
+  vertical-align: middle;
+  /*float: left;*/
+  min-height: 1px; }
+
+/* FOR SOME REASON I HAD TO SUBTRACT 2 FROM EVERYTHING. IDK WHY*/
+.row .onecol {
+  width: 2.85%; }
+
+.row .twocol {
+  width: 11.45%; }
+
+.row .threecol {
+  width: 20.05%; }
+
+.row .fourcol {
+  width: 28.75%; }
+
+.row .fivecol {
+  width: 37.45%; }
+
+.row .sixcol {
+  width: 46%;
+  /* should be 48... had to change it for some reason for editor to not wrap*/ }
+
+.row .sevencol {
+  width: 54.75%; }
+
+.row .eightcol {
+  width: 63.4%; }
+
+.row .ninecol {
+  width: 72.05%; }
+
+.row .tencol {
+  width: 80.7%; }
+
+.row .elevencol {
+  width: 89.35%; }
+
+.row .twelvecol {
+  width: 100%; }
+
+/* Mobile */
+img, object, embed {
+  max-width: 100%; }
+
+img {
+  height: auto;
+  display: inline-block; }
+
+/* Mobile */
+@media (max-width: 767px) {
+  .row.collapse {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px; }
+  .row.collapse > .onecol, .row.collapse > .twocol, .row.collapse > .threecol, .row.collapse > .fourcol, .row.collapse > .fivecol, .row.collapse > .sixcol, .row.collapse > .sevencol, .row.collapse > .eightcol, .row.collapse > .ninecol, .row.collapse > .tencol, .row.collapse > .elevencol, .row.collapse > .twelvecol {
+    width: auto;
+    float: none;
+    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 10px; } }
+
+/* Mobile */
+#container > #slides > div.directions .row {
+  margin: 30px auto; }
